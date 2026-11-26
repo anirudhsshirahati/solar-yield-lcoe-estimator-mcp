@@ -1,11 +1,16 @@
+import os
 import sys
 import solar_server
+from pathlib import Path
 import gradio as gr
 from dotenv import load_dotenv
 from agents import Agent, Runner
 from agents.mcp import MCPServerStdio
 
 load_dotenv()
+
+BASE_DIR = Path(__file__).resolve().parent
+SERVER_PATH = str(BASE_DIR / "solar_server.py")
 
 agent_name = "Solar Yield and LCOE Estimation Assistant"
 instructions = "You are able to estimate solar yield and LCOE for a given location of a utility scale solar pv project. Answer only using estimate_utility_solar_yield_and_lcoe tool."
@@ -14,8 +19,9 @@ message = "Evaluate a 100 MW single-axis tracking solar project near Barstow, CA
 
 async def chat_with_agent(message: str, history: list[dict]) -> str:
     # Spawn solar_server.py over stdio and wrap it into the OpenAI Agent
-    async with MCPServerStdio(name="Solar Yield and LCOE Estimator Server", params = {"command": "uv", "args": ["run", "-m", "solar_server"]}, client_session_timeout_seconds=60
-    ) as mcp_server:
+    async with MCPServerStdio(name="Solar Yield and LCOE Estimator Server", 
+    params = {"command": sys.executable, "args": [SERVER_PATH], "env": os.environ.copy(), "cwd": str(BASE_DIR),}, 
+    client_session_timeout_seconds=60) as mcp_server:
         agent = Agent(name=agent_name, instructions=instructions, model=model, mcp_servers=[mcp_server],)
         result = await Runner.run(agent, message)
         return result.final_output

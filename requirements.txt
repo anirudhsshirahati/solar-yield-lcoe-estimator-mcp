@@ -279,7 +279,7 @@ py-key-value-shared==0.3.0
     # via py-key-value-aio
 pycparser==3.12 ; implementation_name != 'PyPy' and platform_python_implementation != 'PyPy'
     # via cffi
-pydantic==2.14.4
+pydantic==2.12.5
     # via
     #   agent-framework-core
     #   fastapi
@@ -297,7 +297,7 @@ pydantic==2.14.4
     #   typer
 pydantic-ai-slim==1.96.1
     # via solar-yield-lcoe-estimator-mcp
-pydantic-core==2.50.5
+pydantic-core==2.41.5
     # via pydantic
 pydantic-graph==1.96.1
     # via pydantic-ai-slim
