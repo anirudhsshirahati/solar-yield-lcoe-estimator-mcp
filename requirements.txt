@@ -6,8 +6,6 @@ agent-framework-core==1.26.0
     #   solar-yield-lcoe-estimator-mcp
 agent-framework-openai==1.18.2
     # via solar-yield-lcoe-estimator-mcp
-aiofile==3.12.3
-    # via py-key-value-aio
 annotated-doc==0.0.7
     # via
     #   fastapi
@@ -22,28 +20,33 @@ anyio==4.16.0
     #   httpx2
     #   mcp
     #   openai
-    #   py-key-value-aio
-    #   pydantic-ai-slim
-    #   pydantic-graph
     #   sse-starlette
     #   starlette
     #   watchfiles
+async-timeout==5.0.1 ; python_full_version < '3.11.3'
+    # via redis
 attrs==26.1.0
     # via
+    #   cyclopts
     #   jsonschema
+    #   jsonschema-path
     #   referencing
 audioop-lts==0.2.2 ; python_full_version >= '3.13'
     # via gradio
+authlib==1.9.10
+    # via fastmcp
+backports-tarfile==1.2.0 ; python_full_version < '3.12'
+    # via jaraco-context
 beartype==0.23.1
     # via
-    #   fastmcp-slim
     #   py-key-value-aio
+    #   py-key-value-shared
 brotli==1.2.1
     # via gradio
+burner-redis==0.1.7
+    # via pydocket
 cachetools==8.0.3
     # via py-key-value-aio
-caio==0.12.10
-    # via aiofile
 certifi==2026.11.20
     # via
     #   httpcore
@@ -58,33 +61,47 @@ click==8.5.1
     # via
     #   huggingface-hub
     #   uvicorn
+cloudpickle==3.1.3
+    # via pydocket
 colorama==0.4.6 ; sys_platform == 'win32'
     # via
     #   tqdm
     #   typer
+cronsim==2.9
+    # via pydocket
 cryptography==50.0.2
-    # via pyjwt
+    # via
+    #   authlib
+    #   joserfc
+    #   pyjwt
+    #   secretstorage
+cyclopts==5.5.3
+    # via fastmcp
+diskcache==5.6.3
+    # via py-key-value-aio
 dnspython==2.9.2
     # via email-validator
+docstring-parser==0.18.0
+    # via cyclopts
 email-validator==2.4.0
     # via pydantic
 exceptiongroup==1.3.2
-    # via fastmcp-slim
+    # via fastmcp
+fakeredis==2.34.1
+    # via fastmcp
 fastapi==0.165.0
     # via
     #   gradio
     #   solar-yield-lcoe-estimator-mcp
-fastmcp-slim==4.2.6
-    # via
-    #   pydantic-ai-slim
-    #   solar-yield-lcoe-estimator-mcp
+fastmcp==2.14.7
+    # via solar-yield-lcoe-estimator-mcp
 filelock==4.3.1
     # via huggingface-hub
 fsspec==2026.9.0
     # via
     #   gradio-client
     #   huggingface-hub
-genai-prices==0.2.5
+genai-prices==0.0.73
     # via pydantic-ai-slim
 gradio==6.32.0
     # via solar-yield-lcoe-estimator-mcp
@@ -119,19 +136,22 @@ httptools==0.9.0
     # via uvicorn
 httpx==0.29.0
     # via
+    #   fastmcp
     #   gradio
     #   gradio-client
+    #   mcp
+    #   pydantic-ai-slim
+    #   pydantic-graph
     #   safehttpx
+httpx-sse==0.4.3
+    # via mcp
 httpx2==2.16.2
     # via
-    #   fastmcp-slim
     #   genai-prices
     #   huggingface-hub
-    #   mcp
     #   openai
     #   openai-agents
-    #   pydantic-ai-slim
-httpx2-jsfetch==1.0 ; sys_platform == 'emscripten'
+httpx2-jsfetch==1.0 ; python_full_version >= '3.12' and sys_platform == 'emscripten'
     # via httpx2
 huggingface-hub==2.5.0
     # via
@@ -144,16 +164,40 @@ idna==3.20
     #   httpx
     #   httpx2
     #   requests
+importlib-metadata==10.2.0 ; python_full_version < '3.12'
+    # via keyring
+jaraco-classes==3.4.0
+    # via keyring
+jaraco-context==6.1.2
+    # via keyring
+jaraco-functools==4.6.0
+    # via keyring
+jeepney==0.9.0 ; sys_platform == 'linux'
+    # via
+    #   keyring
+    #   secretstorage
 jinja2==3.1.6
     # via gradio
 jiter==0.19.0
     # via openai
+joserfc==1.8.0
+    # via authlib
+jsonref==1.1.0
+    # via fastmcp
 jsonschema==4.26.0
     # via mcp
+jsonschema-path==0.5.0
+    # via fastmcp
 jsonschema-specifications==2025.9.1
     # via jsonschema
+keyring==25.7.0
+    # via py-key-value-aio
+lazy-importer==0.1.0 ; python_full_version < '3.12'
+    # via importlib-metadata
 logfire-api==6.0.1
     # via pydantic-graph
+lupa==2.8
+    # via fakeredis
 lxml==6.1.3
     # via python-pptx
 markdown-it-py==4.3.0
@@ -162,19 +206,27 @@ markupsafe==3.0.4
     # via
     #   gradio
     #   jinja2
-mcp==2.3.0
+mcp==1.30.0
     # via
-    #   fastmcp-slim
+    #   fastmcp
     #   openai-agents
-mcp-types==2.3.0
-    # via
-    #   fastmcp-slim
-    #   mcp
+    #   pydantic-ai-slim
 mdurl==0.1.2
     # via markdown-it-py
+more-itertools==11.2.1
+    # via
+    #   jaraco-classes
+    #   jaraco-functools
 msgspec==0.22.0
     # via agent-framework-core
-numpy==2.5.5
+numpy==2.4.6 ; python_full_version < '3.12'
+    # via
+    #   gradio
+    #   h5py
+    #   pandas
+    #   pvlib
+    #   scipy
+numpy==2.5.5 ; python_full_version >= '3.12'
     # via
     #   gradio
     #   h5py
@@ -189,17 +241,19 @@ openai==3.60.0
     #   solar-yield-lcoe-estimator-mcp
 openai-agents==0.26.0
     # via solar-yield-lcoe-estimator-mcp
+openapi-pydantic==0.6.0
+    # via fastmcp
 opentelemetry-api==1.45.2
     # via
     #   agent-framework-core
     #   fastapi
-    #   fastmcp-slim
-    #   mcp
     #   pydantic-ai-slim
+    #   pydocket
 orjson==3.13.0
     # via gradio
 packaging==26.4
     # via
+    #   fastmcp
     #   gradio
     #   gradio-client
     #   huggingface-hub
@@ -207,61 +261,79 @@ pandas==3.1.1
     # via
     #   gradio
     #   pvlib
+pathable==0.6.0
+    # via jsonschema-path
+pathvalidate==3.3.1
+    # via py-key-value-aio
 pillow==13.0.0
     # via
     #   gradio
     #   python-pptx
 platformdirs==4.14.8
-    # via fastmcp-slim
+    # via fastmcp
+prometheus-client==0.26.0
+    # via pydocket
 pvlib==0.16.1
     # via solar-yield-lcoe-estimator-mcp
-py-key-value-aio==0.5.0
-    # via fastmcp-slim
+py-key-value-aio==0.3.0
+    # via
+    #   fastmcp
+    #   pydocket
+py-key-value-shared==0.3.0
+    # via py-key-value-aio
 pycparser==3.12 ; implementation_name != 'PyPy' and platform_python_implementation != 'PyPy'
     # via cffi
 pydantic==2.14.4
     # via
     #   agent-framework-core
     #   fastapi
-    #   fastmcp-slim
+    #   fastmcp
     #   genai-prices
     #   gradio
     #   mcp
-    #   mcp-types
     #   openai
     #   openai-agents
+    #   openapi-pydantic
     #   pydantic-ai-slim
     #   pydantic-graph
     #   pydantic-settings
     #   solar-yield-lcoe-estimator-mcp
     #   typer
-pydantic-ai-slim==2.75.0
+pydantic-ai-slim==1.96.1
     # via solar-yield-lcoe-estimator-mcp
 pydantic-core==2.50.5
     # via pydantic
-pydantic-graph==2.75.0
+pydantic-graph==1.96.1
     # via pydantic-ai-slim
 pydantic-settings==2.16.3
-    # via fastmcp-slim
+    # via mcp
+pydocket==0.32.1
+    # via fastmcp
 pydub==0.25.1
     # via gradio
 pygments==2.21.0
-    # via rich
+    # via
+    #   rich
+    #   rich-rst
 pyjwt==2.15.1
     # via
     #   mcp
     #   openai-agents
 pypdf==7.2.0
     # via solar-yield-lcoe-estimator-mcp
-python-dateutil==2.9.0.post0
+pyperclip==1.11.0
+    # via fastmcp
+python-dateutil==4.0.0
     # via pandas
 python-dotenv==1.2.4
     # via
     #   agent-framework-core
-    #   fastmcp-slim
+    #   fastmcp
     #   pydantic-settings
     #   solar-yield-lcoe-estimator-mcp
     #   uvicorn
+python-json-logger==4.2.0
+    # via pydocket
 python-multipart==0.0.34
     # via
     #   gradio
@@ -275,15 +347,24 @@ pytz==2026.6
     #   pvlib
 pywin32==312 ; sys_platform == 'win32'
     # via mcp
+pywin32-ctypes==0.2.3 ; sys_platform == 'win32'
+    # via keyring
 pyyaml==6.0.4
     # via
     #   agent-framework-core
     #   gradio
     #   huggingface-hub
+    #   jsonschema-path
     #   uvicorn
+redis==8.2.0
+    # via
+    #   fakeredis
+    #   py-key-value-aio
+    #   pydocket
 referencing==0.37.0
     # via
     #   jsonschema
+    #   jsonschema-path
     #   jsonschema-specifications
 regex==2026.11.25
     # via
@@ -297,31 +378,39 @@ requests==2.34.2
     #   tiktoken
 rich==15.0.0
     # via
-    #   fastmcp-slim
+    #   cyclopts
+    #   fastmcp
+    #   pydocket
+    #   rich-rst
     #   solar-yield-lcoe-estimator-mcp
     #   typer
+rich-rst==2.2.0
+    # via cyclopts
 rpds-py==2026.9.1
     # via
     #   jsonschema
     #   referencing
 safehttpx==0.1.7
     # via gradio
-scipy==1.18.1
+scipy==1.17.1 ; python_full_version < '3.12'
     # via pvlib
+scipy==1.18.1 ; python_full_version >= '3.12'
+    # via pvlib
+secretstorage==3.5.0 ; sys_platform == 'linux'
+    # via keyring
 semantic-version==2.10.0
     # via gradio
 shellingham==1.5.4
     # via typer
-six==1.17.0
-    # via python-dateutil
 sniffio==1.3.1
     # via openai
+sortedcontainers==2.4.0
+    # via fakeredis
 sse-starlette==3.7.1
     # via mcp
 starlette==1.10.0
     # via
     #   fastapi
-    #   fastmcp-slim
     #   gradio
     #   mcp
     #   openai-agents
@@ -336,31 +425,30 @@ truststore==0.10.5 ; sys_platform != 'emscripten'
     # via
     #   httpcore2
     #   httpx2
-    #   pydantic-ai-slim
 typer==0.29.3
     # via
     #   gradio
     #   hf-gradio
+    #   pydocket
 typing-extensions==4.16.0
     # via
     #   agent-framework-core
     #   anyio
     #   exceptiongroup
     #   fastapi
-    #   fastmcp-slim
     #   gradio
     #   gradio-client
     #   httpx2
     #   huggingface-hub
     #   mcp
-    #   mcp-types
     #   openai
     #   openai-agents
     #   opentelemetry-api
-    #   py-key-value-aio
+    #   py-key-value-shared
     #   pydantic
     #   pydantic-core
     #   pydantic-settings
+    #   pydocket
     #   python-pptx
     #   referencing
     #   starlette
@@ -377,12 +465,17 @@ tzdata==2026.6
     # via
     #   pandas
     #   pvlib
+    #   pydocket
+    #   python-dateutil
+uncalled-for==0.6.2
+    # via pydocket
 urllib3==2.8.0
     # via
     #   openai-agents
     #   requests
 uvicorn==0.54.0
     # via
+    #   fastmcp
     #   gradio
     #   mcp
     #   solar-yield-lcoe-estimator-mcp
@@ -390,9 +483,12 @@ uvloop==0.23.0 ; platform_python_implementation != 'PyPy' and sys_platform != 'c
     # via uvicorn
 watchfiles==1.3.0
     # via uvicorn
-websockets==15.0.1
+websockets==17.4
     # via
+    #   fastmcp
     #   openai-agents
     #   uvicorn
 xlsxwriter==3.3.4
     # via python-pptx
+zipp==4.1.2 ; python_full_version < '3.12'
+    # via importlib-metadata
