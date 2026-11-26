@@ -30,9 +30,7 @@ anyio==4.16.0
     #   watchfiles
 attrs==26.1.0
     # via
-    #   cyclopts
     #   jsonschema
-    #   jsonschema-path
     #   referencing
 audioop-lts==0.2.2 ; python_full_version >= '3.13'
     # via gradio
@@ -48,7 +46,6 @@ caio==0.12.10
     # via aiofile
 certifi==2026.11.20
     # via
-    #   fastmcp-slim
     #   httpcore
     #   httpx
     #   openai-agents
@@ -66,15 +63,9 @@ colorama==0.4.6 ; sys_platform == 'win32'
     #   tqdm
     #   typer
 cryptography==50.0.2
-    # via
-    #   joserfc
-    #   pyjwt
-cyclopts==5.5.3
-    # via fastmcp-slim
+    # via pyjwt
 dnspython==2.9.2
     # via email-validator
-docstring-parser==0.18.0
-    # via cyclopts
 email-validator==2.4.0
     # via pydantic
 exceptiongroup==1.3.2
@@ -83,11 +74,8 @@ fastapi==0.165.0
     # via
     #   gradio
     #   solar-yield-lcoe-estimator-mcp
-fastmcp==4.2.6
-    # via solar-yield-lcoe-estimator-mcp
 fastmcp-slim==4.2.6
     # via
-    #   fastmcp
     #   pydantic-ai-slim
     #   solar-yield-lcoe-estimator-mcp
 filelock==4.3.1
@@ -108,7 +96,6 @@ graphviz==0.21
     # via openai-agents
 griffelib==2.4.1
     # via
-    #   fastmcp-slim
     #   openai-agents
     #   pydantic-ai-slim
 groovy==0.1.2
@@ -161,16 +148,8 @@ jinja2==3.1.6
     # via gradio
 jiter==0.19.0
     # via openai
-joserfc==1.8.0
-    # via fastmcp-slim
-jsonref==1.1.0
-    # via fastmcp-slim
 jsonschema==4.26.0
-    # via
-    #   fastmcp-slim
-    #   mcp
-jsonschema-path==0.5.0
-    # via fastmcp-slim
+    # via mcp
 jsonschema-specifications==2025.9.1
     # via jsonschema
 logfire-api==6.0.1
@@ -210,8 +189,6 @@ openai==3.60.0
     #   solar-yield-lcoe-estimator-mcp
 openai-agents==0.26.0
     # via solar-yield-lcoe-estimator-mcp
-openapi-pydantic==0.6.0
-    # via fastmcp-slim
 opentelemetry-api==1.45.2
     # via
     #   agent-framework-core
@@ -223,7 +200,6 @@ orjson==3.13.0
     # via gradio
 packaging==26.4
     # via
-    #   fastmcp-slim
     #   gradio
     #   gradio-client
     #   huggingface-hub
@@ -231,8 +207,6 @@ pandas==3.1.1
     # via
     #   gradio
     #   pvlib
-pathable==0.6.0
-    # via jsonschema-path
 pillow==13.0.0
     # via
     #   gradio
@@ -256,7 +230,6 @@ pydantic==2.14.4
     #   mcp-types
     #   openai
     #   openai-agents
-    #   openapi-pydantic
     #   pydantic-ai-slim
     #   pydantic-graph
     #   pydantic-settings
@@ -273,17 +246,13 @@ pydantic-settings==2.16.3
 pydub==0.25.1
     # via gradio
 pygments==2.21.0
-    # via
-    #   rich
-    #   rich-rst
+    # via rich
 pyjwt==2.15.1
     # via
     #   mcp
     #   openai-agents
 pypdf==7.2.0
     # via solar-yield-lcoe-estimator-mcp
-pyperclip==1.11.0
-    # via fastmcp-slim
 python-dateutil==2.9.0.post0
     # via pandas
 python-dotenv==1.2.4
@@ -295,7 +264,6 @@ python-dotenv==1.2.4
     #   uvicorn
 python-multipart==0.0.34
     # via
-    #   fastmcp-slim
     #   gradio
     #   mcp
     #   openai-agents
@@ -310,15 +278,12 @@ pywin32==312 ; sys_platform == 'win32'
 pyyaml==6.0.4
     # via
     #   agent-framework-core
-    #   fastmcp-slim
     #   gradio
     #   huggingface-hub
-    #   jsonschema-path
     #   uvicorn
 referencing==0.37.0
     # via
     #   jsonschema
-    #   jsonschema-path
     #   jsonschema-specifications
 regex==2026.11.25
     # via
@@ -332,13 +297,9 @@ requests==2.34.2
     #   tiktoken
 rich==15.0.0
     # via
-    #   cyclopts
     #   fastmcp-slim
-    #   rich-rst
     #   solar-yield-lcoe-estimator-mcp
     #   typer
-rich-rst==2.2.0
-    # via cyclopts
 rpds-py==2026.9.1
     # via
     #   jsonschema
@@ -416,27 +377,21 @@ tzdata==2026.6
     # via
     #   pandas
     #   pvlib
-uncalled-for==0.6.2
-    # via fastmcp-slim
 urllib3==2.8.0
     # via
     #   openai-agents
     #   requests
 uvicorn==0.54.0
     # via
-    #   fastmcp-slim
     #   gradio
     #   mcp
     #   solar-yield-lcoe-estimator-mcp
 uvloop==0.23.0 ; platform_python_implementation != 'PyPy' and sys_platform != 'cygwin' and sys_platform != 'win32'
     # via uvicorn
 watchfiles==1.3.0
-    # via
-    #   fastmcp-slim
-    #   uvicorn
+    # via uvicorn
 websockets==15.0.1
     # via
-    #   fastmcp-slim
     #   openai-agents
     #   uvicorn
 xlsxwriter==3.3.4

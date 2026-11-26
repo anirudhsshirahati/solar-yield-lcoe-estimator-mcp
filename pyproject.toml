@@ -19,5 +19,4 @@ dependencies = [
     "uvicorn[standard]>=0.46.0",
     "pvlib>=0.16.1",
     "fastmcp-slim>=3.4.2",
-    "fastmcp>=4.2.6",
 ]
