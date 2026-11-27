@@ -10,7 +10,7 @@ sdk_version: 6.32.0
 
 An Applied AI application that transforms solar project requirements into energy yield and Levelized Cost of Energy (LCOE) estimates through conversational AI, deterministic scientific computing, and agentic tool orchestration.
 
-**[Live Application](https://huggingface.co/spaces/aianirudh/solar-yield-lcoe-estimator-mcp)** | **[GitHub Repository](https://github.com/anirudhsshirahati/solar-yield-lcoe-estimator-mcp)**
+**[Live Application](https://huggingface.co/spaces/aianirudh/solar-yield-lcoe-estimator-mcp)**
 
 `Python` `OpenAI Agents SDK` `FastMCP` `MCP` `Pydantic` `pvlib` `PVGIS` `Gradio`
 
@@ -120,5 +120,3 @@ flowchart TD
 - **AI Product Engineering:** Transforming complex engineering workflows into accessible decision support applications.
 
 The underlying idea is simple: make sophisticated engineering workflows accessible through AI while keeping critical computations reproducible, transparent, and reliable.
-
----
